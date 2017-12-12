@@ -60,7 +60,7 @@
       Instascan.Camera.getCameras().then(cameras => {
         if (cameras.length > 0) {
           scanner.start(cameras[0])
-          document.getElementById('statusText').innerHTML = '<a href="content">'+'Scan your code.'+
+          document.getElementById('statusText').innerHTML = 'Scan your code.'
         } else {
           document.getElementById('statusText').innerHTML = 'Device not supported.'
         }
