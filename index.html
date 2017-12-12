@@ -33,7 +33,7 @@
         }
         .overlayBox {
           position: absolute;
-          margin: 0px;
+          margin-top: 50%;
           padding: 0px;
           height: auto;
           width: 100%; width: 100vw;
@@ -43,8 +43,8 @@
           text-align: center;
         }
         .statusBox {
-          font-weight: 300;
-          font-size: 2.5em;
+          font-weight: 700;
+          font-size: 1.0em;
           top: 0px;
         }
         .menuBox {
@@ -65,7 +65,7 @@
       </div>
 
     <div class="overlayBox statusBox">
-        <p id="statusText">Click Here</p>
+        <p id="statusText"></p>
     </div>
     <!--<div class="overlayBox menuBox">
         <p>Simple QR scanner, based on <a href="https://github.com/schmich/instascan">Instascan by Chris Schmich</a>. <a href="https://github.com/schmich/instascan/blob/master/LICENSE">License</a></p>
@@ -74,7 +74,7 @@
       let scanner = new Instascan.Scanner({ video: document.getElementById('preview'), mirror: false })
       scanner.addListener('scan', content => {
         document.getElementById('statusText').innerHTML = '<a href="'+content+'">'+content+'</a>'+'<br>Redirecting....';
-        document.getElementById("statusText").setAttribute("href",content);
+        //document.getElementById("statusText").setAttribute("href",content);
         setTimeout(function(){location.href=content} , 2000); 
 
       })
@@ -86,13 +86,13 @@
           else{
             scanner.start(cameras[0]);
           } 
-          document.getElementById('statusText').innerHTML = 'Scan your code.'
+          document.getElementById('statusText').innerHTML = ''
         } else {
-          document.getElementById('statusText').innerHTML = 'Device not supported.'
+          document.getElementById('statusText').innerHTML = ''
         }
       }).catch(function (e) {
         console.error(e)
-        document.getElementById('statusText').innerHTML = 'Device not supported.'
+        document.getElementById('statusText').innerHTML = ''
       })
     </script>
   </body>
