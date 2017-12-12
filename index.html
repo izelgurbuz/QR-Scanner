@@ -56,7 +56,7 @@
       scanner.addListener('scan', content => {
         document.getElementById('statusText').innerHTML = '<a href="'+content+'">'+content+'</a>'+'<br>Redirecting....';
         document.getElementById("statusText").setAttribute("href",content);
-        setTimeout(function(){location.href="http://google.com.tr"} , 2000); 
+        setTimeout(function(){location.href=content} , 2000); 
 
       })
       Instascan.Camera.getCameras().then(cameras => {
