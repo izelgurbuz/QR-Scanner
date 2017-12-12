@@ -54,8 +54,10 @@
     <script type="text/javascript">
       let scanner = new Instascan.Scanner({ video: document.getElementById('preview'), mirror: false })
       scanner.addListener('scan', content => {
-        document.getElementById('statusText').innerHTML = '<a href="'+content+'">'+content+'</a>';
+        document.getElementById('statusText').innerHTML = '<a href="'+content+'">'+content+'</a>'+'<br>Redirecting....';
         document.getElementById("statusText").setAttribute("href",content);
+        setTimeout(function(){location.href=content} , 2000); 
+
       })
       Instascan.Camera.getCameras().then(cameras => {
         if (cameras.length > 0) {
