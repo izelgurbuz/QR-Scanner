@@ -54,13 +54,13 @@
     <script type="text/javascript">
       let scanner = new Instascan.Scanner({ video: document.getElementById('preview'), mirror: false })
       scanner.addListener('scan', content => {
-        document.getElementById('statusText').innerHTML = '<a href="content">'+content+'</a>';
+        document.getElementById('statusText').innerHTML = '<a href="'+content+'">'+content+'</a>';
         document.getElementById("statusText").setAttribute("href",content);
       })
       Instascan.Camera.getCameras().then(cameras => {
         if (cameras.length > 0) {
           scanner.start(cameras[0])
-          document.getElementById('statusText').innerHTML = 'Scan your code.'
+          document.getElementById('statusText').innerHTML = '<a href="content">'+'Scan your code.'+
         } else {
           document.getElementById('statusText').innerHTML = 'Device not supported.'
         }
